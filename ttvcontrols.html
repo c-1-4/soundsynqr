@@ -1,0 +1,113 @@
+<div id="BetterDMCA"
+    style="z-index: 1000000 !important; border-bottom: 1px solid rgb(255, 255, 255, 0.1) ; display: grid; grid-template-columns: 268px 74px; grid-template-rows: 50px; background-color: #181818; height: 50px; width: 340; font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+    <style>
+        #BDMCATTVsettings {
+            width: 100%;
+            margin: auto;
+            height: 48px;
+            grid-column: 1;
+            grid-row: 1;
+            background-color: #181818;
+            display: grid;
+            overflow: hidden;
+        }
+
+        #BDMCAsettings {
+            width: 100%;
+            height: 48px;
+            background-color: #181818;
+            
+            margin: auto 0;
+            grid-column: 1;
+            grid-row: 1;
+            display: grid;
+            grid-template-columns: 57% 38px 38px;
+            visibility: hidden;
+            animation-duration: 0.20s;
+            animation-fill-mode: forwards;
+            overflow: hidden;
+        }
+
+        .spinIcon {
+            transition: 0.15s;
+        }
+
+        .spinIcon:hover {
+            transform:  scale(1.15);
+        }
+
+        .spinIcon:active {
+            transform: rotate(0deg) scale(0.95);
+        }
+
+        .icon {
+            transition: 0.15s;
+        }
+
+        .icon:hover {
+            transform: scale(1.15);
+        }
+
+        @keyframes openSettings {
+            from {
+                width: 0;
+                visibility: hidden;
+            }
+
+            to {
+                width: 128;
+                visibility: visible;
+            }
+        }
+
+        @keyframes closeSettings {
+            from {
+                width: 128;
+                visibility: visible;
+            }
+
+            to {
+                width: 0;
+                visibility: hidden;
+            }
+        }
+    </style>
+    <div id="BDMCAdata" style="display: none;" extensionpath="chrome-extension://EXTENSIONID/" videoCode="TuKM4otF0QE"
+        videoTime="" videoPlaying="" volumeMultipler="100" destroyPlayer="false"></div>
+    <div id="BDMCAcontrols"
+        style="width: 100px; height: 50px; margin: 0 0; grid-column: 2; grid-row: 1;  display: grid;  grid-template-rows: 50px; grid-template-columns: 32px 32px 10px;">
+        <img src="chrome-extension://EXTENSIONID/images/expand.png" class="spinIcon"
+            style="width:20px; height:20px; grid-column: 1; margin: auto auto"
+            onclick="document.getElementById('BDMCAsettings').style.animationName = (document.getElementById('BDMCAsettings').style.animationName === 'openSettings' ? 'closeSettings' : 'openSettings')" />
+
+        <div id="BDMCAclosebtnDiv" style="width: 32px; height: 32px; grid-column: 2; margin: auto auto">
+            <button
+                style="height: 100%; width: 100%; background-color: #181818; color:white;border-width: 0; border-radius: 5px; text-decoration: none; padding: 0; margin: auto"
+                onclick="document.getElementById('BetterDMCA').style.display = 'none'">
+                <img class="icon" src="chrome-extension://EXTENSIONID/images/closeButton.png"
+                    style="width: 32px; height: 32px; image-rendering: crisp-edges;">
+            </button>
+        </div>
+    </div>
+
+    <div id="BDMCATTVsettings">
+        <div title="volume"
+            style="grid-column:1;height:100%; margin: 0; padding: 0;  color: white; display: grid;grid-template-rows: 100%; grid-template-columns: 50px 210px;">
+            <p id="BDMCAvolumeLabel" style="margin: auto; grid-column: 1;  width: 100%; text-align: center;">100%</p>
+            <input type="range" min="0" max="100" value="100" class="slider" id="BDMCAvolume"
+                style="width: 100%; grid-column: 2;">
+        </div>
+
+    </div>
+    <div id="BDMCAsettings">
+        <p style="grid-column: 1; margin: auto; overflow: hidden; text-overflow: clip;">soundsynqr vVERSION</p>
+        
+        <img src="chrome-extension://EXTENSIONID/images/githubLogo32.png" class="icon"
+            style="grid-column: 2; width:24px; height:24px; margin: auto">
+
+    </div>
+
+</div>
+<div id="BDMCAplayer">
+
+</div>

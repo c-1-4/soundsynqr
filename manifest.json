@@ -1,0 +1,36 @@
+{
+    "manifest_version": 2,
+    "name": "soundsynqr",
+    "version": "0.0.1",
+    "description": "Worry free audio listening on twitch.tv",
+    "icons": {
+        "16": "16x16.png",
+        "48": "48x48.png",
+        "128": "128x128.png"
+    },
+    "browser_action": {
+        "default_title": "open control panel"
+       
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["jquery.min.js", "qrcode.js", "jsqr.js", "in-content.js"]
+        }
+    ],
+    "background": {
+        "scripts": ["jquery.min.js","background.js"],
+        "persistent": false
+    },
+    "content_security_policy":
+        "script-src 'self' 'unsafe-eval'; object-src 'self'; img-src * data: 'self' 'unsafe-eval'",
+    "offline_enabled": true,
+    "permissions": ["tabs", "<all_urls>", "activeTab", "background"],
+    "web_accessible_resources": [
+        "controlpanel.html",
+        "ttvcontrols.html",
+        "yt_iframe_api.js",
+        "ytplayer.js",
+        "images/*"
+    ]
+}
