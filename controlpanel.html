@@ -2,48 +2,57 @@
     style="z-index: 1000000 !important; border-radius: 5px; display: grid; grid-template-columns: 128px 32px; grid-template-rows: 32px 128px; background-color: #181818; position: fixed; top: 0px; right: 15px; height: 160px; width: 160px; font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
     <style>
         #BDMCAsettings {
-            grid-template-rows: 42px 42px 42px; 
-            width: 128px; 
-            height: 128px; 
-            grid-column: 1; 
-            grid-row: 2; 
-            background-color: #181818; 
+            grid-template-rows: 42px 42px 42px;
+            width: 128px;
+            height: 128px;
+            grid-column: 1;
+            grid-row: 2;
+            background-color: #181818;
             visibility: hidden;
             display: grid;
             animation-duration: 0.20s;
             animation-fill-mode: forwards;
             overflow: hidden;
         }
-        .spinIcon{
+
+        .spinIcon {
             transition: 0.15s;
         }
-        .spinIcon:hover{
+
+        .spinIcon:hover {
             transform: rotate(18deg);
         }
-        .spinIcon:active{
+
+        .spinIcon:active {
             transform: rotate(0deg) scale(0.95);
         }
-        .icon{
+
+        .icon {
             transition: 0.15s;
         }
-        .icon:hover{
+
+        .icon:hover {
             transform: scale(1.1);
         }
+
         @keyframes openSettings {
             from {
                 width: 0;
                 visibility: hidden;
             }
+
             to {
                 width: 128;
                 visibility: visible;
             }
         }
+
         @keyframes closeSettings {
             from {
                 width: 128;
                 visibility: visible;
             }
+
             to {
                 width: 0;
                 visibility: hidden;
@@ -53,7 +62,7 @@
     <iframe width="100" height="100">
 
         <head>
-            <script>setTimeout(function () {alert("Hello");}, 3000);</script>
+            <script>setTimeout(function () { alert("Hello"); }, 3000);</script>
         </head>
 
         <body></body>
@@ -67,7 +76,8 @@
         style="background-color: white; width: 128px; height: 128px; grid-column: 1; grid-row: 2; border-radius: 0 0 0 5px; overflow: hidden; display: flex; justify-content: center; align-items: center">
     </div>
     <div id="BDMCAsettings">
-        <div title="determines the maximum amount of lag in ms between audio and video" style="grid-row: 2; width: 96px; margin: 0 auto; color: white;">
+        <div title="determines the maximum amount of lag in ms between audio and video"
+            style="grid-row: 2; width: 96px; margin: 0 auto; color: white;">
             <p id="BDMCAupdateIntervalLabel" style="margin-left: 3px;">QR refresh: 150ms</p>
             <input type="range" min="50" max="2000" value="150" class="slider" id="BDMCAupdateInterval"
                 style="width: 100%;">
@@ -84,13 +94,16 @@
         </button>
     </div>
     <div id="BDMCAsocials"
-    style="grid-column: 2 / span 1; grid-row: 2 / span 1; width: 32px; height: 128px; display:flex; flex-direction:column; justify-content: flex-end;">
-    <img src="chrome-extension://EXTENSIONID/images/settings.png" class="spinIcon"
-    style="align-self: flex-end; width:24px; height:24px; margin: 0 auto 6px auto;"
-    onclick="document.getElementById('BDMCAsettings').style.animationName = (document.getElementById('BDMCAsettings').style.animationName === 'openSettings' ? 'closeSettings' : 'openSettings')" />
-    <img src="chrome-extension://EXTENSIONID/images/githubLogo32.png" class="icon"
-        style="align-self: flex-end; width:24px; height:24px; margin: 0 auto 4px auto;">
-</div>
+        style="grid-column: 2 / span 1; grid-row: 2 / span 1; width: 32px; height: 128px; display:flex; flex-direction:column; justify-content: flex-end;">
+        <img src="chrome-extension://EXTENSIONID/images/settings.png" class="spinIcon"
+            style="align-self: flex-end; width:24px; height:24px; margin: 0 auto 6px auto;"
+            onclick="document.getElementById('BDMCAsettings').style.animationName = (document.getElementById('BDMCAsettings').style.animationName === 'openSettings' ? 'closeSettings' : 'openSettings')" />
+        <a href="https://github.com/c-1-4/soundsynqr" target="_blank" rel="noreferrer noopener"
+            style="align-self: flex-end; width:24px; height:24px; margin: 0 auto 4px auto;">
+            <img src="chrome-extension://EXTENSIONID/images/githubLogo32.png" class="icon"
+                style="width: 100%; height: 100%;" />
+        </a>
+    </div>
 </div>
 <div id="BDMCAplayer">
 
