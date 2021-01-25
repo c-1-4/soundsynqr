@@ -1,5 +1,6 @@
 # soundsynqr
 Share and sync youtube audio on twitch
+[demo video](https://www.youtube.com/watch?v=QMHJH1yKjpI)
 
 # Installation
 Either download the compiled binary from the [chrome store](https://chrome.google.com/webstore/detail/soundsynqr/oaaphmaicdhcjpceibaknalefedehobo) or clone/download this repository and load it in as an uncompressed extension by visiting chrome://extensions
