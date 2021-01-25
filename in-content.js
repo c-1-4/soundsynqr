@@ -29,7 +29,7 @@ var viewerEndLoopInterval = 500; //Viewers end UI and associated logic refresh s
 var playerVolumeModifier = 100;
 //main syncing/update loop
 
-if (window.location.toString().includes(ytVideoIdentifier)) {
+if (window.location.toString().includes("https://www.youtube.com")) {
     streamerViewLoop();
 }
 else if (window.location.toString().includes(tVideoIdentifier)) {
@@ -39,10 +39,11 @@ else if (window.location.toString().includes(tVideoIdentifier)) {
 function streamerViewLoop() {
     if (document.getElementById("BDMCATTVsettings"))
         document.getElementById("BDMCATTVsettings").remove();
-    var currTime = document.getElementsByClassName('video-stream')[0].currentTime;
     if ($('#BetterDMCA').length && $('#BDMCAsettings').css('animation-name') != 'openSettings') {
         var root = $('#BetterDMCA');
+        var currTime = document.getElementsByClassName('video-stream')[0].currentTime;
         var payload = window.location.toString().replace(ytVideoIdentifier, "").split("&")[0] + '|' + currTime.toFixed(2).toString();
+        
         //console.log(payload);
         $('#BDMCAqrcode').empty();
         $('#BDMCAqrcode').show();
@@ -69,7 +70,7 @@ function streamerViewLoop() {
 
 function viewersEndLoop() {
 
-    if ($('#BetterDMCA').length && $('video')[0].videoHeight > 0) {
+    if ($('#BetterDMCA').length && $('#BetterDMCA').css('display') != 'none' && $('video')[0].videoHeight > 0) {
         playerVolumeModifier = parseFloat(document.getElementById("BDMCAvolume").value);
         document.getElementById("BDMCAvolumeLabel").innerText = `${playerVolumeModifier.toFixed(0)}%`;
         var root = $('#BetterDMCA');
@@ -138,9 +139,8 @@ function viewersEndLoop() {
             qrSize = -1;
             failedDetectionAttempts++;
             if (failedDetectionAttempts >= 3) {
-                $('#BDMCAdata').attr("destroyPlayer", "true");
+               
                 $('#BetterDMCA').css('display', 'none');
-
                 failedDetectionAttempts = 0;
             }
         }
@@ -174,7 +174,6 @@ chrome.extension.onConnect.addListener(popupPort => {
     popupPort.onMessage.addListener(popupMessageHandler);
     // Set listener for disconnection (aka. popup closed)
     popupPort.onDisconnect.addListener(() => {
-        console.log('in-content.js - disconnected from popup');
         observer.disconnect();
     });
     // Make popup port accessible to other methods
